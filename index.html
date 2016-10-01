@@ -43,12 +43,48 @@
       <h4>@nolanlawson</h4>
     </section>
 
+    <section>
+      <img class="no-border" src="img/discostu.jpg" alt="Disco Stu looking at disco record sales"/>
+      <div class="footer muted">Source: <a href="http://frinkiac.com/">Frinkiac</a></div>
+    </section>
+
+    <section>
+      <h2 class="random-color">Progressive web apps!</h2>
+    </section>
+
+    <section data-background="img/hype_train.jpg">
+    </section>
+
+    <section>
+      <img class="no-border" src="img/profile.jpg" alt="Nolan profile"/>
+      <h4>@nolanlawson</h4>
+    </section>
+
+    <section data-background="img/edge.png">
+    </section>
+
+    <section>
+      <div style="margin:0 auto;position:relative;width:500px;height:400px;background:url(img/grimacing.png) center center no-repeat;">
+        <img style="position:absolute;bottom:0;left:150px;filter:" class="no-border" src="img/foot.png"/>
+      </div>
+    </section>
+
+    <section>
+      <h3>Sources</h3>
+      <ul>
+        <li>
+      <a href="https://www.flickr.com/photos/juergo/14488477365/in/photolist-o5iexT-dNntQG-9D2fSJ-cRYrzm-rYa3oE-9D2gmf-9CYkPe-9D2gWJ-rHRAvC-9H4JPr-dppe69-dppd89-926UvM-dNntjS-dppcLh-dpp4GX-dppdf1-dppf23-boVvSK-7GYniC-9H4K1Z-5RPb7F-dpp7np-qvzSnJ-9pxEBx-gnpTaP-dppdFN-zSSAuL-7GYkBU-f4U7fq-fL6h8W-926Uz6-gnpBzE-9F4XBD-926UC4-dpp4PB-dppeVo-boVvyx-dpp67R-boVwtp-boVUNF-hxyJ7n-boVVmX-boVV5H-8GRfja-dpp7LF-dppe1b-92a33W-6kem38-gnpYus">Hype train (Flickr)</a>
+        </li>
+      </ul>
+    </section>
+
   </div>
 </div>
 
 <script src="lib/js/head.min.js"></script>
 <script src="js/reveal.min.js"></script>
 <script src="js/jquery-1.9.1.js"></script>
+<script src="js/randomColor.js"></script>
 <script src="js/highcharts.js"></script>
 <script src="js/highcharts-exporting.js"></script>
 
@@ -56,6 +92,8 @@
   // Full list of configuration options available here:
   // https://github.com/hakimel/reveal.js#configuration
   Reveal.initialize({
+    width: '99%',
+    height: '99%',
     controls: true,
     progress: true,
     history: true,
@@ -64,6 +102,7 @@
 
     theme: Reveal.getQueryHash().theme, // available themes are in /css/theme
     transition: Reveal.getQueryHash().transition || 'none', // default/cube/page/concave/zoom/linear/fade/none
+    backgroundTransition: Reveal.getQueryHash().transition || 'none',
 
     // Parallax scrolling
     // parallaxBackgroundImage: 'https://s3.amazonaws.com/hakim-static/reveal-js/reveal-parallax-1.jpg',
@@ -93,6 +132,32 @@
     });
   }
 
+  var randomizedTextTimeout;
+
+  function randomizeText(slide) {
+    var rando = slide.querySelector('.random-color');
+    if (rando) {
+      randomizedTextTimeout = setInterval(function () {
+        requestAnimationFrame(function () {
+          if (!rando.dataset.colorized) {
+            var text = rando.innerText;
+            var newText = '';
+            for (var i = 0; i < text.length; i++) {
+              newText += '<span style="color:' + randomColor() + '">' + text.charAt(i) + '</span>';
+            }
+            rando.innerHTML = newText;
+            rando.dataset.colorized = true;
+          } else {
+            var spans = rando.querySelectorAll('span');
+            for (var i = 0; i < spans.length; i++) {
+              spans[i].style.color = randomColor();
+            }
+          }
+        });
+      }, 100);
+    }
+  }
+
   Reveal.addEventListener('slidechanged', function (event) {
     // event.previousSlide, event.currentSlide, event.indexh, event.indexv
     var notes = event.currentSlide.querySelector(".notes");
@@ -101,6 +166,8 @@
     }
 
     requestAnimationFrame(function () {
+      clearInterval(randomizedTextTimeout);
+      randomizeText(event.currentSlide);
       requestAnimationFrame(playVideo);
     });
   });
@@ -126,6 +193,7 @@
   }
 
   playVideo();
+  randomizeText(document.querySelector('section.present'));
 
 </script>
 
