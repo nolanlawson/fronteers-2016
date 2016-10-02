@@ -132,8 +132,8 @@
         <thead>
         <tr>
           <th></th>
-          <th><span class="fragment" data-fragment-index="4">Native apps</span></th>
-          <th><span class="fragment" data-fragment-index="5">Web apps</span></th>
+          <th><span>Native apps</span></th>
+          <th><span>Web apps</span></th>
           <th><span class="fragment" data-fragment-index="12">PWAs</span></th>
         </tr>
         </thead>
@@ -315,6 +315,10 @@
       </div>
     </section>
 
+    <section>
+      <h3>Progressive rendering</h3>
+    </section>
+
     <section data-background="img/aerotwist.png" data-background-size="contain"></section>
 
     <section>
@@ -322,14 +326,171 @@
       <ul>
         <li>FastBoot (Ember)</li>
         <li>Server-side React</li>
-        <li>Angular isolated rendering</li>
+        <li>Angular 2 isolated renderer</li>
         <li>PRPL (Polymer)</li>
         <li>etc.</li>
       </ul>
     </section>
 
     <section>
-      <video src="vid/2g.mp4" height="750" style="transform:translateY(-5%);"></video>
+      <video src="vid/2g.mp4" height="750" style="transform:translateY(-5%);" muted></video>
+    </section>
+
+    <section>
+      <h2>&#x1F419; Multithreaded</h2>
+    </section>
+
+    <section>
+      <h3>Why multithread? Because <em>jank</em>.</h3>
+    </section>
+
+    <section>
+      <video id="zeldaVid" src="vid/zelda2.mp4" height="650" style="transform:translateY(-10%);" muted></video>
+      <button type="button"
+              style="position:absolute;top:0;right:0;padding:7px 10px 5px;margin:10px;display:block;font-size:32px;cursor:pointer;"
+              onclick="zeldaVid.muted = !zeldaVid.muted">&#x1F50A;</button>
+    </section>
+
+    <section>
+      <video muted src="vid/floydophone.mp4" height="650"></video>
+      <div class="footer muted">Source: <a href="https://twitter.com/floydophone/status/764244080800829440">Pete Hunt on Twitter</a></div>
+    </section>
+
+    <section>
+      <img class="no-border" src="img/jeff_atwood.png" alt="Jeff Atwood, state of JS performance is poor"/>
+      <div class="footer text-muted">
+        Source: https://meta.discourse.org/t/the-state-of-javascript-on-android-in-2015-is-poor/33889
+      </div>
+    </section>
+
+    <section>
+      <div style="position:relative;left: 0; top: 0;">
+        <img class="no-border" style="z-index: 1;" src="img/phones.png"/>
+        <div class="fragment" style="text-align:center;z-index: 2;position:absolute;top:0;left:0;right:0;bottom:0;">
+          <img class="no-border" style="" src="img/phones-overlay.png"/>
+        </div>
+      </div>
+      <div class="footer text-muted" style="transform:translateY(-5px);">
+        Source: T-Mobile
+      </div>
+    </section>
+
+    <section>
+      <video src="vid/scroll_jank.mp4" height="700" style="transform:translateY(-5%)" muted></video>
+      <div class="footer text-muted" style="transform:translateY(-5px);">
+        Source: <a href="https://www.youtube.com/watch?v=NPM6172J22g">Rick Byers</a>
+      </div>
+
+    </section>
+        <section>
+          <h3>Web workers</h3>
+          <div style="display:flex;flex-direction:row;">
+            <div style="flex-grow: 1; flex-shrink: 1">
+          <pre><code class="javascript">// index.js
+
+var worker = new Worker('worker.js');
+worker.postMessage('ping');
+worker.onmessage = function (e) {
+  console.log(e.data); // 'pong'
+};</code></pre>
+            </div>
+
+            <div style="flex-grow: 1; flex-shrink: 1;">
+          <pre><code class="javascript">// worker.js
+
+self.onmessage = function (e) {
+  console.log(e.data); // 'ping'
+  self.postMessage('pong');
+};</code></pre>
+</div>
+          </div>
+        </section>
+
+    <section data-background="img/pokedex_architecture.png" data-background-size="contain">
+    </section>
+
+    <section>
+      <video height="650" src="vid/react_worker.mp4" muted></video>
+    </section>
+
+    <section>
+      <img src="img/evan_you.png" class="no-border"/>
+      <div class="footer text-muted" style="transform:translateY(-5px);">
+        Source: <a href="https://www.youtube.com/watch?v=Ag-1wmHWwS4">Evan You: Demystifying Frontend Framework Performance</a>
+      </div>
+    </section>
+
+    <section>
+      <blockquote class="speech bubble">
+        The gain is pretty marginal... and it just adds a lot of development complexity. This is
+        probably the reason we haven't seen web worker-based rendering architecture widely used in real apps.
+      </blockquote>
+      <div class="text-muted">
+        <em>– Evan You</em>
+      </div>
+    </section>
+    <section data-background="img/html5workertest.png" data-background-size="contain">
+    </section>
+<section>
+  <h3>One solution: promise-worker</h3>
+          <div style="display:flex;flex-direction:row;">
+            <div style="flex-grow: 1; flex-shrink: 1">
+          <pre><code class="javascript">// index.js
+var pw = new PromiseWorker(
+  new Worker('worker.js'));
+pw.postMessage('yo').then(supports => {
+  if (!supports) {
+    // fall back to worker polyfill
+  }
+});
+</code></pre>
+
+            </div>
+
+            <div style="flex-grow: 1; flex-shrink: 1;">
+          <pre><code class="javascript">// worker.js
+registerPromiseWorker(msg => {
+  return !!self.indexedDB;
+});</code></pre>
+</div>
+</div>
+  <div class="footer text-muted">
+    Source: <a href="https://github.com/nolanlawson/promise-worker">promise-worker</a>
+  </div>
+</section>
+    <section>
+      <h3>Possible future solution: Task Worklets</h3>
+      <pre><code class="javascript">registerTaskHandler('NetworkFetcher', class {
+
+  @expose async request(url) {
+     return doPostProcessing(await fetch(url));
+  }
+
+  doPostProcessing(imgData) {
+    /* Convert to grayscale or something expensive */
+  }
+}</code></pre>
+      <div class="text-muted footer">
+        Source: <a href="https://docs.google.com/document/d/1yM1Nd7qaqVxsRGDWeHR7OpZPCngtFa_KH5JQ6EjDmAc/edit">
+        Ian Kilpatrick</a>
+      </div>
+    </section>
+
+    <section>
+      <h2>More likely:</h2><h3>Service Worker becomes the new Web Worker</h3>
+    </section>
+
+    <section>
+      <img src="img/bahmutov1.png" style="display:block;margin: 10px auto;"/>
+      <img src="img/bahmutov2.png" style="display:block;margin: 10px auto;"/>
+    </section>
+
+    <section>
+      <img src="img/tweet_jaffa.png"/>
+    </section>
+
+    <section>
+      <h2 class="random-color">Thank you!</h2>
     </section>
 
     <section>
@@ -345,6 +506,9 @@
         <li><a href="http://kryogenix.org/code/browser/everyonehasjs.html">Everyone has JavaScript, right?</a></li>
         <li><a href="https://www.youtube.com/watch?v=puOrC7cfjRI">Tom Dale: Responsive Field Day 2015</a></li>
         <li><a href="https://twitter.com/aerotwist/status/729712502943174657">Paul Lewis on progressive rendering</a></li>
+        <li><a href="http://www.pocketjavascript.com/blog/2015/11/23/introducing-pokedex-org">Introducing Pokedex.org</a></li>
+        <li><a href="http://blog.nparashuram.com/2015/12/react-web-worker-renderer.html">React Web Worker Renderer: N. Parashuram</a></li>
+        <li><a href="http://html5workertest.com">HTML5WorkerTest.com</a></li>
       </ul>
     </section>
 
