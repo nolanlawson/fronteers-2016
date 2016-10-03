@@ -223,6 +223,11 @@ table.fade-in-table td {
   z-index: 1000;
 }
 
+/* see https://www.tjvantoll.com/2016/06/15/emoji-on-windows/ */
+.emoji {
+  font-family: "Segoe UI Emoji" !important;
+}
+
 html {
   /* fix reveal fullscreen black background issue */
   background-color: #fafafa !important;
