@@ -24,23 +24,15 @@ button.btn {
 }
 
 .horizontal-flex {
-  display: -webkit-box;
   display: flex;
-  -webkit-box-orient: horizontal;
-  flex-direction: column;
-}
-
-.center-flex {
-  display: -webkit-box;
-  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
   align-items: center;
 }
 
-.center-flex .no-emphasis {
-  flex-grow: 0;
-}
-
-.center-flex .emphasis {
+.horizontal-flex > * {
+  flex-basis: 0;
+  flex-shrink: 1;
   flex-grow: 1;
 }
 
@@ -231,4 +223,9 @@ table.fade-in-table td {
 html {
   /* fix reveal fullscreen black background issue */
   background-color: #fafafa !important;
-} 
+}
+
+.reveal .sources li {
+  font-size: 14px !important;
+  line-height: 20px !important;
+}
