@@ -200,8 +200,8 @@
         <thead>
         <tr>
           <th></th>
-          <th><span>Native apps</span></th>
-          <th><span>Web apps</span></th>
+          <th><span class="fragment" data-fragment-index="4">Native apps</span></th>
+          <th><span class="fragment" data-fragment-index="4">Web apps</span></th>
           <th><span class="fragment" data-fragment-index="12">PWAs</span></th>
         </tr>
         </thead>
@@ -349,10 +349,10 @@
           <img class="no-border" src="img/cheetah.jpg"/>
 
         </div>
-        <div>
+        <div class="fragment" data-fragment-index="1">
           <img class="no-border" src="img/roadrunner.jpg"/>
         </div>
-        <div>
+        <div class="fragment" data-fragment-index="2">
           <img class="no-border" src="img/sloth.jpg"/>
         </div>
       </div>
@@ -360,10 +360,10 @@
         <div>
           <h4>Memory</h4>
         </div>
-        <div>
+        <div class="fragment" data-fragment-index="1">
           <h4>Filesystem</h4>
         </div>
-        <div>
+        <div class="fragment" data-fragment-index="2">
           <h4>Network</h4>
         </div>
       </div>
@@ -419,7 +419,7 @@
           <td class="center"><span class="fragment" data-fragment-index="3">Cache API<br/>(Service Worker)</span></td>
         </tr>
         <tr>
-          <td><span>Dynamic/query data</span></td>
+          <td><span class="fragment" data-fragment-index="4">Dynamic/query data</span></td>
           <td class="center"><span class="fragment" data-fragment-index="5">LocalStorage,<br/>WebSQL</span></td>
           <td class="center"><span class="fragment" data-fragment-index="6">IndexedDB</span></td>
         </tr>
@@ -468,7 +468,7 @@
     <section>
       <h3>"Progressive enhancement"</h3>
       <ul>
-        <li class="fragment"><strong>Weak version</strong>: gracefully degrade, progressively show content</li>
+        <li class="fragment"><strong>Weak version</strong>: upgrade per capabilities, progressively show content</li>
         <li class="fragment"><strong>Strong version</strong>: your site should work without JavaScript</li>
       </ul>
       <aside class="notes">
