@@ -37,33 +37,60 @@
 <div class="reveal">
   <div class="slides">
     <section>
-      <h2>Offline, progressive, and multithreaded</h2>
+      <h3>Offline, progressive, and multithreaded</h3>
       <h4>A peek at webapps of the future</h4>
-
-      <h4>@nolanlawson</h4>
+      <div class="footer text-muted">@nolanlawson – speaker notes are in the console</div>
+      <aside class="notes">
+        Hi everyone. My name is Nolan Lawson, and this talk is "Offline, progressive, and multithreaded: a peek at webapps
+        of the future." Now, already that's a pretty ambitious title – who am I to say what I think webapps might look like
+        a year, five years down the road? But what I'm going to try to do in this talk is look at existing trends and extrapolate
+        into the future.
+      </aside>
     </section>
 
     <section>
       <img class="no-border" src="img/discostu.jpg" alt="Disco Stu looking at disco record sales"/>
       <div class="footer muted">Source: <a href="http://frinkiac.com/">Frinkiac</a></div>
+      <aside class="notes">
+        Of course, with any extrapolation from existing trends, there's the potential of getting it wrong.
+      </aside>
     </section>
 
     <section>
       <img class="no-border" src="img/profile.jpg" alt="Nolan profile"/>
       <h4>@nolanlawson</h4>
+      <aside class="notes">
+        This is me; I look like the dude in the hat with the guitar.
+      </aside>
     </section>
 
     <section data-background="img/edge.png">
+      <aside class="notes">
+        I work for Microsoft on the Edge team. In particular I work on the performance team, focusing on browser
+        performance and also meeting with webdev teams to help them make their websites faster.
+      </aside>
     </section>
 
     <section>
       <div style="margin:0 auto;position:relative;width:500px;height:400px;background:url(img/grimacing.png) center center no-repeat;">
         <img style="position:absolute;bottom:0;left:150px;filter:" class="no-border" src="img/foot.png"/>
       </div>
+      <aside class="notes">
+        This is a good time to mention, though, that the contents of this talk represent my point of view and not that
+        of my employer. So if I say anything controversial or outlandish, that's on me and not on my employer. For instance,
+        if I tell you the moon is made of cheese, that's me saying it and not Microsoft (and by the way, it is delicious cheese).
+      </aside>
     </section>
 
     <section>
       <h2 class="random-color">Progressive web apps!</h2>
+      <aside class="notes">
+        So when I talk about webapps of the future, almost inevitably I am talking about progressive web apps. This is the
+        "new hotness" that everyone is talking about these days. I hesitated
+        to even put "progressive web app" in the title, because I didn't want folks to think "oh, another PWA talk." But what
+        I'm going to try to do in this talk is figure out where Progressive Web Apps came from, what high-level problems are
+        they trying to solve, and where do they fit in in the overall zeitgest of the web.
+      </aside>
     </section>
 
     <!--
@@ -82,6 +109,11 @@
         <img src="img/orion7.jpg" class="fragment" style="position:absolute;left:0;right:0;top:0;bottom:0;"/>
         <img src="img/orion8.jpg" class="fragment" style="position:absolute;left:0;right:0;top:0;bottom:0;"/>
       </div>
+      <aside class="notes">
+        If you just look at the raw features that are commonly associated with Progressive Web Apps, it can feel a bit
+        like an unrelated constellation of features. And like any constellation, sure you can make some dots and draw
+        some lines, but it's not guaranteed you'll be able to see what picture the lines are supposed to draw.
+      </aside>
     </section>
 
     <section>
@@ -90,6 +122,13 @@
       <div class="footer text-muted">
         Source: https://www.youtube.com/watch?v=YxQUxCsNomM
       </div>
+      <aside class="notes">
+        Bruce Lawson, though, has a really great talk on PWAs where he explains where they fit into the web's history.
+        He's been in the industry longer than me, so he's got a much longer perspective on this.
+        What he points out in the talk is that, if you were building web sites 10-15 years ago, and you wanted to build
+        rich, immersive experiences for your users, you were probably using Flash. It was proprietary, it was nonstandard,
+        but it was how you built quality web sites in those days.
+      </aside>
     </section>
 
     <section>
@@ -101,6 +140,12 @@
       <div class="text-muted">
         <em>– Ian Hickson, 2009 (via Bruce Lawson)</em>
       </div>
+      <aside class="notes">
+        When the WHATWG and HTML5 got started, though, one of the explicit goals was to tackle the problem of Flash.
+        HTML5 was directly seen as a response to the challenges to the web platform posed by Flash. The goal wasn't
+        to just rewrite Flash APIs as web standards, but instead to take the best concepts of Flash – file upload,
+        copy/paste, animations – and bring them to the web.
+      </aside>
     </section>
 
     <!--
@@ -111,6 +156,10 @@
     -->
 
     <section data-background="img/alex_russell_future.png">
+      <aside class="notes">
+        And by all accounts, it worked! Today if you want to build a high-quality desktop site, you don't need to use
+        Flash anymore. We won on desktop!
+      </aside>
     </section>
 
     <!--
@@ -126,11 +175,23 @@
       <div class="text-muted">
         <em>– Alex Russell, 2016</em>
       </div>
+      <aside class="notes">
+        Unfortunately, as Alex Russell points out in this talk, we won just in time for mobile to eat the world. Now we
+        find ourselves in a very similar solution on mobile to where we were on desktop 10-15 years ago. If you want to build
+        a high-quality, immersive experience for your mobile users, you write a native Android or iOS app. Maybe it's a bit
+        painful for folks like us – folks who love the web – to acknowledge, but the market has spoken. In terms of hours spent
+        and in terms of top-quality experience, native is winning.
+      </aside>
     </section>
 
     <section>
       <h4>HTML5 was a response to Flash</h4>
       <h4 class="fragment">PWAs are a response to native mobile apps</h4>
+      <aside class="notes">
+        And this is where Progressive Web Apps come in. In the same way that HTML5 was a response to Flash, PWAs are a response
+        to native mobile. Again, the goal is not to just take every Android/iOS API and rewrite them for the web, but instead
+        to take the high-level concepts and port them over to the web, while preserving what makes the web webby.
+      </aside>
     </section>
 
     <section>
@@ -165,16 +226,40 @@
         </tr>
         </tbody>
       </table>
+      <aside class="notes">
+        Seen in this light, the high-level concepts – the philosophies – behind PWAs start to make more sense. When I read
+        the literature on PWAs, I feel there are three high-level features associated with them, each of which draws a comparison
+        or a contrast with native apps. First off, they are offline – they work well without an internet connection or with a poor one, they
+        are progressive – they progressively reveal bits of functionality the more you use the application, and they're multithreaded –
+        they take advantage of the device capabilities to run tasks in parallel.
 
+        Each of these we can compare to natve apps. Offline? native apps do this fairly well. They don't always do it right,
+        but for the most part, native developers are at least aware of offline states, and tend to show a spinner or cached content
+        instead of just an error page. Progressive? Interestingly, this is one case where native apps are actually terrible. It takes
+        so long to download an app from the store! This is actually something that the web is already designed to handle very well,
+        and it's a feature of the web that we don't want to lose, as we make it more app-y. The third is multithreaded, and here I would
+        argue that native apps are *very* good at this; I used to do Android development, and I worked alongside iOS developers as well,
+        and this is just something we do by default – we avoid over-using the UI thread, we use background threads in order to keep
+        the UI smooth. Web developers, I'd argue, are only dimly aware of this, and an understanding of the inherent limitations of mobile
+        hardware hasn't really filtered through yet.
+      </aside>
     </section>
 
     <section>
       <h2><span class="emoji">&#x1f4f6;</span> Offline</h2>
+      <aside class="notes">
+        OK, so I have three topics to cover, and what I plan on doing is essentially a 10-minute lightning talk on each one. Ready? Let's go.
+      </aside>
     </section>
 
     <section>
       <img style="margin:20px" class="no-border" src="img/pouchdb.png"/>
       <img style="margin:20px" class="no-border" src="img/localforage.png"/>
+      <aside class="notes">
+        Offline is a subject I feel very strongly about, because I maintain PouchDB (an IndexedDB library), and I've also contributed
+        to LocalForage, another IndexedDB library. I am perhaps one of the 5 or 6 people in the world who actually enjoys working with
+        IndexedDB.
+      </aside>
     </section>
 
     <!--
@@ -201,15 +286,36 @@
 
     <section>
       <h3>"Offline-first"</h3>
+      <aside class="notes">
+        Now the reason I go through so much effort to write wrapper libraries around IndexedDB is I really believe in the concept
+        of offline-first – the idea that you store data locally in the browser, and you prefer that local data whenever possible,
+        instead of just going to the network for everything. But I have to admit, I've always had a problem with the term "offline-first"
+        itself, if only because I felt it put the focus on the wrong thing.
+      </aside>
     </section>
 
-    <section data-background="img/subway.jpg"></section>
+    <section data-background="img/subway.jpg">
+      <aside class="notes">
+        It's not about being on the subway...
+      </aside>
+    </section>
     <section data-background="img/plane.jpg"></section>
-    <section data-background="img/climbing.jpg"></section>
+    <aside class="notes">
+      Or on a plane...
+    </aside>
+    <section data-background="img/climbing.jpg">
+      <aside class="notes">
+        Or climbing on a mountain trying to catch some rare rock-type Pokémon, whatever you need your phone to do
+        while you're climbing. These are too easy to dismiss as edge cases.
+      </aside>
+    </section>
 
 
     <section>
       <h3>Offline-first is about <em>speed</em> <span class="emoji">&#x26A1;</span></h3>
+      <aside class="notes">
+        No, what offline-first is really about is speed.
+      </aside>
     </section>
 
     <section>
@@ -223,9 +329,18 @@
         <img style="position:absolute;left:0;right:0;top:0;bottom:0;z-index:5"  class="fragment" src="img/latency_5.png" alt="latency numbers all programmers should know"/>
         <img style="position:absolute;left:0;right:0;top:0;bottom:0;z-index:5"  class="fragment" src="img/latency_6.png" alt="latency numbers all programmers should know"/>
       </div>
-          <span class="text-muted">
-            https://gist.github.com/hellerbarde/2843375
-          </span>
+      <div class="text-muted footer">
+        Source: <a href="https://gist.github.com/hellerbarde/2843375">https://gist.github.com/hellerbarde/2843375</a>
+      </div>
+      <aside class="notes">
+        This is a nice chart of various latency numbers. I won't go through the whole thing, but I will call out some major features.
+        First off, things get exponentially slower as you go from left to right. Each block color is worth 100 of the previous
+        block color.
+        Second off, as you go from left to right, you start to move from mostly in-memory operations to mostly filesystem to mostly
+        network.
+        Here are three interesting numbers - the amount of time to read 1 MB from memory, 1 MB from SSD, and the time to send
+        a single packet round-trip from California to the Netherlands (no, I did not choose the Netherlands!).
+      </aside>
     </section>
 
     <section>
@@ -252,14 +367,26 @@
           <h4>Network</h4>
         </div>
       </div>
+      <aside class="notes">
+        To put it another way, this is what the previous slide tells us. When you start to think in terms of offline-first,
+        you tend to build apps that are faster regardless of the network conditions. Even on a screaming fast network,
+        it's almost always faster to hit the local cache instead.
+      </aside>
     </section>
 
     <section>
       <video src="vid/php.mp4" muted></video>
+      <aside class="notes">
+        Here's a simple example: php.net. This autosuggestion box is eerily fast. How did they do it? Simple – it's just
+        a big JSON object stored in localStorage. This feels faster than it ever could if it required a network round-trip.
+      </aside>
     </section>
 
     <section>
       <h3>How do we offline?</h3>
+      <aside class="notes">
+        OK, so now hopefully I've convinced you that offline-first is a worthwhile thing to do.
+      </aside>
     </section>
 
     <section>
@@ -270,6 +397,10 @@
       <div class="text-muted">
         <em>– Sylvain Galineau</em>
       </div>
+      <aside class="notes">
+        Unfortunately I gotta break some bad news to you. This is true of many parts of the web platform, but it's
+        especially true of offline storage.
+      </aside>
     </section>
 
     <section>
@@ -294,6 +425,13 @@
         </tr>
         </tbody>
       </table>
+      <aside class="notes">
+        So basically, AppCache and WebSQL are deprecated, LocalStorage is quasi-deprecated, and the preferred modern solution
+        is the Cache API (via Service Worker) and IndexedDB. Note that the new solutions are more low-level than the previous
+        solutions. They may have a reputation for being difficult to work with, but the point is that folks are supposed
+        to be building libraries on top of them to make them easier to use. If you're a bigger, don't try to use Service Worker
+        or IndexedDB directly – use a wrapper library!
+      </aside>
     </section>
 
     <section>
@@ -305,14 +443,26 @@
         <img class="no-border fragment"
              style="position:absolute;top:0;bottom:0;left:0;right:0" src="img/pokedex_shot3.png"/>
       </div>
+      <aside class="notes">
+        And here's how you might divide "static" from "dynamic" data. You can use this to decide whether something should
+        go in the Cache or in IndexedDB. This is how I did it in the Pokédex app I wrote.
+      </aside>
     </section>
 
     <section>
       <h2><span class="emoji">&#x1F4C8;</span> Progressive</h2>
+      <aside class="notes">
+        OK, now let's talk progressive.
+      </aside>
     </section>
 
     <section>
       <video muted src="vid/pokedex-blog-4.mp4" height="650"/>
+      <aside class="notes">
+        The standard definition of "progressive" in the context of PWAs is that a web site "progressively" becomes
+        an app you install to your home screen. On Android today this is accomplished with a cute little install banner.
+        When we implement PWAs in Edge, we'll likely have something similar.
+      </aside>
     </section>
 
     <section>
@@ -321,34 +471,82 @@
         <li class="fragment"><strong>Weak version</strong>: gracefully degrade, progressively show content</li>
         <li class="fragment"><strong>Strong version</strong>: your site should work without JavaScript</li>
       </ul>
+      <aside class="notes">
+        Now there's another definition of "progressive" that's worth calling out – progressive enhancement, which has
+        sort of a weak version and a strong version.
+      </aside>
     </section>
 
     <section data-background="img/regressive.png" data-background-size="contain">
+      <aside class="notes">
+        And there are lots of proponents of the strong version. There was a strongly-worded article by Jeremy Keith
+        called "Regressive Web Apps" highlighting the fact that most of the lauded PWAs actually don't work without
+        JS.
+      </aside>
     </section>
 
     <section>
       <h3>In 2016, it's okay to build a website that doesn't work without JavaScript.</h3>
+      <aside class="notes">
+        This is where I'm gonna potentially get thought-leadery and say something controversial. I think the "your
+        site must work without JS" mantra is dumb.
+      </aside>
     </section>
 
-    <section data-background="img/web_isnt_uniform.png" data-background-size="contain"></section>
+    <section data-background="img/web_isnt_uniform.png" data-background-size="contain">
+      <aside class="notes">
+        Before you break out the pitchforks, here's my reasoning. First off, there was a nice article by Karolina Szczur
+        on how she turned off JS in her browser...
+      </aside>
+    </section>
 
-    <section data-background="img/no_js.png" data-background-size="contain"></section>
+    <section data-background="img/no_js.png" data-background-size="contain">
+      <aside class="notes">
+        And noticed that most major sites suddenly stopped working. Here's Airbnb, Trello, Gmail, Dropbox, Facebook – all broken.
+        Her conclusion was that these sites must have done something wrong. My conclusion was more like – wow, okay, so if
+        even these sites don't bother making it worth without JS, why should I go to the trouble? Clearly nobody besides
+        Karolina has been particularly bothered by this up to now.
+      </aside>
+    </section>
 
     <section>
       <img src="img/everyone_has_js.png" height="600px"/>
       <div class="footer">Source: <a href="http://kryogenix.org/code/browser/everyonehasjs.html">Everyone has JavaScript, right?</a></div>
+      <aside class="notes">
+        Another argument I want to dismantle: this is "everyone has JS" by Stuart Langridge. I really admire Stuart, but I always found
+        this argument perplexing. It basically says, "the request for JavaScript might fail, so we should make our sites work without
+        JavaScript."
+      </aside>
     </section>
 
     <section>
       <img class="no-border" src="img/github1.png"/>
+      <aside class="notes">
+        Here's an illustration of why I find this point perplexing. This is GitHub when the CSS fails to load. Not the JS – the CSS.
+      </aside>
     </section>
 
     <section>
       <img class="no-border" src="img/github2.png"/>
+      <aside class="notes">
+        I actually ran into this in real life. Yes, this does happen! We've probably all seen sites like this. Now tell me, is this
+        site particularly usable? Would you actually try to interact with it, or would you just refresh and try again when you've
+        got a connection?
+        So okay, where are the influencers going out and telling us to disable CSS in our browser and ensure that our sites work without
+        CSS? It's just as broken without it, the network request is just as likely to fail, but nobody is on a crusade against CSS, only JS.
+        To me, there are three pillars of the web platform: HTML, CSS, and JS. You can't just knock one pillar out and say it has to work
+        without it. That's nonsense.
+      </aside>
     </section>
 
     <section>
       <img class="no-border" src="img/tomdale.png"/>
+      <aside class="notes">
+        To me, Tom Dale had the final word on this in a talk at Front Trends. What he basically says is that: if you really believe
+        in the _spirit_ of progressive enhancement, that sites should be accessible to the largest number of people, then you should
+        consider the next billion people who are coming online with only a smartphone. These folks have auto-updating modern browsers
+        that run JS, but what they _don't_ have is a reliable internet connection.
+      </aside>
     </section>
 
     <section>
@@ -360,10 +558,19 @@
       <div class="text-muted">
         <em>– Tom Dale</em>
       </div>
+      <aside class="notes">
+        Or in other words, offline-first is the new progressive enhancement. If you build a site that works without JavaScript,
+        you are benefiting approximately zero people. If you build a site that works well offline using JavaScript, you're reaching
+        a huge number of people. End of story.
+      </aside>
     </section>
 
     <section>
       <h3>Progressive rendering</h3>
+      <aside class="notes">
+        Now, there is somewhere where progressive enhancement is having a bit of vengeance, and that's with progressive
+        rendering, or server-side rendering.
+      </aside>
     </section>
 
     <section>
@@ -371,14 +578,25 @@
     <pre><code class="html embiggen">&lt;html&gt;
   &lt;script src="gigantic-app.js"&gt;&lt;/script&gt;
 &lt;/html&gt;</code></pre>
+      <aside class="notes">
+        Basically, at some point the JS community finally realized that shipping empty markup with a gigantic
+        JavaScript file, i.e. relying only on JS for rendering, is way too slow.
+      </aside>
     </section>
 
     <section>
       <img class="no-border" src="img/progressive1a.png"/>
+      <aside class="notes">
+        Why is it slow? Well, simply, you have to wait forever for the page to actually render.
+      </aside>
     </section>
 
     <section>
       <img class="no-border" src="img/progressive2a.png"/>
+      <aside class="notes">
+        Whereas if you ship HTML and CSS directly to the browser, it turns out browsers are very good at rendering this
+        quickly! They have lots of nice optimizations like pre-fetching images. Let's not throw those optimizations away.
+      </aside>
     </section>
 
     <section>
@@ -387,21 +605,35 @@
         <li>FastBoot (Ember)</li>
         <li>Server-side React</li>
         <li>Angular 2 isolated renderer</li>
-        <li>PRPL (Polymer)</li>
         <li>etc.</li>
       </ul>
+      <aside class="notes">
+        Frameworks have embraced this. The days of waiting for an Angular 1 app to load are gone.
+      </aside>
     </section>
 
     <section>
       <video src="vid/2g.mp4" height="750" style="transform:translateY(-5%);" muted></video>
+      <aside class="notes">
+        Here's my Pokedex.org app on 2G. Note how the first view shows up instantly. That's because, yes, it shows up
+        without JavaScript. I actually disabled JS to test this. But I did that to ensure it was _fast_, not because
+        I expect the site to fully work without JS. It actually doesn't. But it actually does progressively load content,
+        falling back on the network as necessary, while the app loads. To me, this is progressive enhancement.
+      </aside>
     </section>
 
     <section>
       <h2><span class="emoji">&#x1F419;</span> Multithreaded</h2>
+      <aside class="notes">
+        OK, now we finally get to multithreaded.
+      </aside>
     </section>
 
     <section>
       <h3>Why multithread? Because <em>jank</em>.</h3>
+      <aside class="notes">
+        Why multithread? Very basically because of jank.
+      </aside>
     </section>
 
     <section>
@@ -409,6 +641,10 @@
       <button type="button"
               style="position:absolute;top:0;right:0;padding:7px 10px 5px;margin:10px;display:block;font-size:32px;cursor:pointer;"
               onclick="zeldaVid.muted = !zeldaVid.muted"><span class="emoji">&#x1F50A;</span></button>
+      <aside class="notes">
+        Have you ever had the experience playing a classic NES game and everything started to suddenly sloooow doooown
+        because there were too many sprites on the screen? This is what the mobile web feels liek to me today.
+      </aside>
     </section>
 
     <!--<section>
@@ -418,14 +654,19 @@
 
     <section>
       <video muted src="vid/kirby_3.mp4" height="650"></video>
+      <aside class="notes">
+        And the reason it happens is because the DOM is single-threaded, and JS is single-threaded, and modern webapps
+        are just doing too much work on the main thread. Here's a simulation of jank. Notice how the animations are choppy,
+        and the scrolling gets stuck. This is the mobile web in a nutshell.
+      </aside>
     </section>
 
-    <section>
+    <!--<section>
       <img class="no-border" src="img/jeff_atwood.png" alt="Jeff Atwood, state of JS performance is poor"/>
       <div class="footer text-muted">
         Source: https://meta.discourse.org/t/the-state-of-javascript-on-android-in-2015-is-poor/33889
       </div>
-    </section>
+    </section>-->
 
     <section>
       <div style="position:relative;left: 0; top: 0;">
@@ -437,6 +678,10 @@
       <div class="footer text-muted" style="transform:translateY(-5px);">
         Source: T-Mobile
       </div>
+      <aside class="notes">
+        But the truth is we don't need to milk just one single core. Even cheap Android smartphones sold today have
+        four, six, eight cores. Yes, they're slow, but they can do four things slowly at once! This is a powerful concept.
+      </aside>
     </section>
 
     <section>
@@ -444,6 +689,11 @@
       <div class="footer text-muted" style="transform:translateY(-5px);">
         Source: <a href="https://www.youtube.com/watch?v=NPM6172J22g">Rick Byers</a>
       </div>
+      <aside class="notes">
+        There are potential fixes. Browsers can move more logic onto background threads, as with passive event listeners.
+        This essentially allows the independent scrolling thread to never ever have to touch the main thread, which is
+        usually a traffic jam. Here's the impact in a nice side-by-side comparison by Rick Byers.
+      </aside>
 
     </section>
         <section>
@@ -468,13 +718,37 @@ self.onmessage = function (e) {
 };</code></pre>
 </div>
           </div>
+          <aside class="notes">
+            However, web developers are also able to take matters into their own hands with web workers. Web workers
+            are a well-established way of taking some bit of JavaScript and running it in a completely separate thread,
+            where it doesn't block the DOM at all. Then you communicate with it using postMessage(). This is a very
+            under-utilized API.
+          </aside>
         </section>
 
     <section data-background="img/pokedex_architecture.png" data-background-size="contain">
+      <aside class="notes">
+        Now, I've been a big booster for web workers. When I wroke the Pokedex app, I published this architecture where
+        I proposed moving essentially all app logic into the web worker, with the UI thread reserved for rendering. This
+        is essentially how native apps are architected, by the way. (Although the web doesn't have shared memory, which
+        would make this easier.)
+      </aside>
+    </section>
+
+    <section>
+      <img class="no-border" src="img/ww_arch_simple.png"/>
+      <aside class="notes">
+        To put it another way, I wanted to promote an architecture where the vast majority of app logic
+        lives inside the worker, and the UI thread just does UI stuff.
+      </aside>
     </section>
 
     <section>
       <video height="650" src="vid/react_worker.mp4" muted></video>
+      <aside class="notes">
+        And this really works! There is research showing that you can get higher framerates, especially for very busy
+        apps, by moving rendering logic into a web worker.
+      </aside>
     </section>
 
     <section>
@@ -482,6 +756,10 @@ self.onmessage = function (e) {
       <div class="footer text-muted" style="transform:translateY(-5px);">
         Source: <a href="https://www.youtube.com/watch?v=Ag-1wmHWwS4">Evan You: Demystifying Frontend Framework Performance</a>
       </div>
+      <aside class="notes">
+        Aside from Angular 2, though, I haven't seen any framework really embrace this. Evan You, creator of Vue.js,
+        offers an interesting observation on this.
+      </aside>
     </section>
 
     <section>
@@ -492,6 +770,12 @@ self.onmessage = function (e) {
       <div class="text-muted">
         <em>– Evan You</em>
       </div>
+      <aside class="notes">
+        (Read Evan's quote.) He's right that the gain mostly comes from very heavy apps, and even then it might only
+        be 5-10 FPS, as is the case with the DBMon example I showed.
+
+        So that's a fair criticism. Maybe the web worker overhead is too much for the average app.
+      </aside>
     </section>
     <!--
     <section data-background="img/html5workertest.png" data-background-size="contain">
@@ -545,6 +829,7 @@ registerPromiseWorker(msg => {
       <h2>More likely:</h2><h3>Service Worker becomes the new Web Worker</h3>
     </section>
     -->
+    <!--
     <section>
       <div style="margin:0 auto;position:relative;width:800px;height:600px;">
         <img class="no-border" src="img/ww_vs_sw1-flattened.png" style="position:absolute;top:0;left:0;right:0;bottom:0"/>
@@ -559,35 +844,95 @@ registerPromiseWorker(msg => {
     <section>
       <img src="img/caniuse_sw.png" class="no-border"/>
     </section>
+-->
 
     <section>
-      <img src="img/bahmutov1.png" style="display:block;margin: 10px auto;"/>
-      <img src="img/bahmutov2.png" style="display:block;margin: 10px auto;"/>
-    </section>
-
-    <section>
+      <h3>2009</h3>
       <img class="no-border" src="img/mvc01.png"/>
+      <aside class="notes">
+        So here's another idea for fixing the multithreading problem.
+        Remember how we built apps in 2010? Rails/Django/Grails on the server, a little
+        jQuery on the client? Main thread was not very busy; most action was happening on the server. It was kind
+        of nice, right!
+      </aside>
     </section>
 
     <section>
-      <img class="no-border" src="img/mvc02.png"/>
+      <img src="img/edge_sw.png" class="no-border"/>
+      <aside class="notes">
+        Now consider that Service Worker is in development in Edge right now, and Safari is interested. So we can
+        at least imagine a future where Service Worker is supported in every browser.
+      </aside>
     </section>
+
+    <section>
+      <h3>2009</h3>
+      <img class="no-border" src="img/mvc01.png"/>
+      <aside class="notes">
+        In essence, why not take all this logic we used to do on the server side, for instance in our MVC frameworks,
+        ala Rails+jQuery back in the 2009 era...
+      </aside>
+    </section>
+
+    <section>
+      <h3>2019?</h3>
+      <img class="no-border" src="img/mvc02.png"/>
+      <aside class="notes">
+        And move that into a service worker? What's interesting about this is that we go back to the benefits we used
+        to have in the old web - that there wasn't much JavaScript running on the main thread. We've basically just
+        got some UI spruce-ups going on here. Most of the heavy lifting is going on inside the Service Worker, which
+        by design runs on a separate thread and doesn't block.
+      </aside>
+    </section>
+
+    <!--<section>
+      <img src="img/sw_arch_simple.png" class="no-border"/>
+      <aside class="notes">
+        And hey we're right back in a scenario where most of the app logic is on another thread!
+      </aside>
+    </section>-->
 
     <section>
       <h3>What about progressive rendering?</h3>
+      <aside class="notes">
+        OK, so what about progressive rendering aka server-side rendering?
+      </aside>
+    </section>
+
+    <section>
+      <img class="no-border" src="img/mvc02.5.png"/>
+      <aside class="notes">
+        Well, if you're able to render some HTML inside of a service worker...
+      </aside>
     </section>
 
     <section>
       <img class="no-border" src="img/mvc03.png"/>
+      <aside class="notes">
+        Then presumably you could run that same logic inside of the server to generate the initial view of the app.
+      </aside>
     </section>
 
     <section>
       <img class="no-border" src="img/mvc04.png"/>
+      <aside class="notes">
+        This is just a sketch of which direction we might go in. But once you have Service Workers and Web Workers
+        available in all browsers, you could potentially mix and match these different kinds of architectures. I have
+        no idea what combination is going to end up being the most ergonomic, but I would like to see a future where
+        more logic is run on background threads, rather than on the main thread. This is how we solve the jank problem.
+
+        Gleb Bahmutov in particular has been doing some interesting thinking along those lines. Why not run
+        Express inside of a Service Worker? Why not run Babel inside of a Service Worker?
+      </aside>
     </section>
 
     <section>
       <img src="img/tweet_jaffa.png"/>
       <div class="footer muted">Source: <a href="https://twitter.com/jaffathecake/status/707954036167852032">Jake Archibald</a></div>
+      <aside class="notes">
+        Or, as Jake Archibald puts it very succinctly (Jake tends to be right about these things – if I were a betting man,
+        I'd say he's correct.)
+      </aside>
     </section>
 
     <section>
@@ -597,10 +942,19 @@ registerPromiseWorker(msg => {
         <li class="fragment"><span class="emoji">&#x1F4C8;</span> Progressive</li>
         <li class="fragment"><span class="emoji">&#x1F419;</span> Multithreaded</li>
       </ul>
+      <aside class="notes">
+        So in general – webapps of the future (progressive web apps) should ideally work well offline, be progressive,
+        and also make use of more than one thread. Let's remember why we do this – it's all about the user. It's about
+        making a better experience for them, making apps that are pleasant to use, making the web a first-class citizen
+        on every platform.
+      </aside>
     </section>
 
     <section>
       <h2 class="random-color">Thank you!</h2>
+      <aside class="notes">
+        Yolo
+      </aside>
     </section>
 
     <section class="sources">
