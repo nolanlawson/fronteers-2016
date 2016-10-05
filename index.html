@@ -653,7 +653,7 @@
     </section>-->
 
     <section>
-      <video muted src="vid/kirby_3.mp4" height="650"></video>
+      <video muted src="vid/kirby_3.mp4"></video>
       <aside class="notes">
         And the reason it happens is because the DOM is single-threaded, and JS is single-threaded, and modern webapps
         are just doing too much work on the main thread. Here's a simulation of jank. Notice how the animations are choppy,
@@ -684,13 +684,18 @@
       </aside>
     </section>
 
+
+    <section data-background="img/bg_chakra.png">
+      <aside class="notes">Browsers can potentially fix this by moving more logic to background threads themselves. In Edge, we actually
+        do a lot of garbage collection, JITing, and parsing on background threads.</aside>
+    </section>
     <section>
       <video src="vid/scroll_jank.mp4" height="700" style="transform:translateY(-5%)" muted></video>
       <div class="footer text-muted" style="transform:translateY(-5px);">
         Source: <a href="https://www.youtube.com/watch?v=NPM6172J22g">Rick Byers</a>
       </div>
       <aside class="notes">
-        There are potential fixes. Browsers can move more logic onto background threads, as with passive event listeners.
+        Another fix is passive event listeners.
         This essentially allows the independent scrolling thread to never ever have to touch the main thread, which is
         usually a traffic jam. Here's the impact in a nice side-by-side comparison by Rick Byers.
       </aside>
@@ -951,13 +956,15 @@ registerPromiseWorker(msg => {
     </section>
 
     <section>
-      <h2 class="random-color">Thank you!</h2>
+      <h3>It's all about</h3>
+      <h2 class="random-color">THE USER</h2>
       <aside class="notes">
-        Yolo
+        Thank you.
       </aside>
     </section>
 
     <section class="sources">
+      <h4>Thanks!</h4>
       <ul>
       <li>Sources</li>
       <ul>
