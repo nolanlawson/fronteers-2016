@@ -542,7 +542,7 @@ So now we
     <section>
       <img class="no-border" src="img/tomdale.png"/>
       <aside class="notes">
-        To me, Tom Dale had the final word on this in a talk at Front Trends. What he basically says is that: if you really believe
+        To me, Tom Dale had the final word on this in a talk at Responsive Field Day. What he basically says is that: if you really believe
         in the _spirit_ of progressive enhancement, that sites should be accessible to the largest number of people, then you should
         consider the next billion people who are coming online with only a smartphone. These folks have auto-updating modern browsers
         that run JS, but what they _don't_ have is a reliable internet connection.
@@ -561,7 +561,7 @@ So now we
       <aside class="notes">
         Or in other words, offline-first is the new progressive enhancement. If you build a site that works without JavaScript,
         you are benefiting approximately zero people. If you build a site that works well offline using JavaScript, you're reaching
-        a huge number of people. End of story.
+        a huge number of people.
       </aside>
     </section>
 
@@ -580,7 +580,7 @@ So now we
 &lt;/html&gt;</code></pre>
       <aside class="notes">
         Basically, at some point the JS community finally realized that shipping empty markup with a gigantic
-        JavaScript file, i.e. relying only on JS for rendering, is way too slow.
+        JavaScript file, i.e. relying only on JS for rendering, is way too slow. I'm not sure which framework started popularizing this, but maybe it was Angular 1 or so.
       </aside>
     </section>
 
@@ -595,7 +595,7 @@ So now we
       <img class="no-border" src="img/progressive2a.png"/>
       <aside class="notes">
         Whereas if you ship HTML and CSS directly to the browser, it turns out browsers are very good at rendering this
-        quickly! They have lots of nice optimizations like pre-fetching images. Let's not throw those optimizations away.
+        quickly! They have lots of nice optimizations like pre-fetching images. Let's not throw those optimizations away by rendering _everything_ with JavaScript.
       </aside>
     </section>
 
@@ -608,7 +608,7 @@ So now we
         <li>etc.</li>
       </ul>
       <aside class="notes">
-        Frameworks have embraced this. The days of waiting for an Angular 1 app to load are gone.
+        And frameworks, to their credit, have embraced this. The days of waiting for an Angular 1 app to load are gone.
       </aside>
     </section>
 
@@ -617,7 +617,7 @@ So now we
       <aside class="notes">
         Here's my Pokedex.org app on 2G. Note how the first view shows up instantly. That's because, yes, it shows up
         without JavaScript. I actually disabled JS to test this. But I did that to ensure it was _fast_, not because
-        I expect the site to fully work without JS. It actually doesn't. But it actually does progressively load content,
+        I feel like I need to make the site fully work without JS. It actually doesn't. But it *does* progressively load content,
         falling back on the network as necessary, while the app loads. To me, this is progressive enhancement.
       </aside>
     </section>
@@ -642,8 +642,8 @@ So now we
               style="position:absolute;top:0;right:0;padding:7px 10px 5px;margin:10px;display:block;font-size:32px;cursor:pointer;"
               onclick="zeldaVid.muted = !zeldaVid.muted"><span class="emoji">&#x1F50A;</span></button>
       <aside class="notes">
-        Have you ever had the experience playing a classic NES game and everything started to suddenly sloooow doooown
-        because there were too many sprites on the screen? This is what the mobile web feels liek to me today.
+        Have you ever had the experience playing a classic NES game and everything started to suddenly sloooow doooowwwwn
+        because there were too many sprites on the screen? This is what the mobile web feels like to me today.
       </aside>
     </section>
 
@@ -679,14 +679,14 @@ So now we
         Source: T-Mobile
       </div>
       <aside class="notes">
-        But the truth is we don't need to milk just one single core. Even cheap Android smartphones sold today have
+        But from my perspective, especially given my experience as a native Android developer, I feel this is totally avoidable. The truth is we don't need to milk just one single core. Even cheap Android smartphones sold today have
         four, six, eight cores. Yes, they're slow, but they can do four things slowly at once! This is a powerful concept.
       </aside>
     </section>
 
 
     <section data-background="img/bg_chakra.png">
-      <aside class="notes">Browsers can potentially fix this by moving more logic to background threads themselves. In Edge, we actually
+      <aside class="notes">Browsers themselves can help fix this situation by moving more logic to background threads themselves. In Edge, we actually
         do a lot of garbage collection, JITing, and parsing on background threads.</aside>
     </section>
     <section>
@@ -724,7 +724,7 @@ self.onmessage = function (e) {
 </div>
           </div>
           <aside class="notes">
-            However, web developers are also able to take matters into their own hands with web workers. Web workers
+            However, I also think web developers have some responsibility to take matters into their own hands, and they can using web workers. Web workers
             are a well-established way of taking some bit of JavaScript and running it in a completely separate thread,
             where it doesn't block the DOM at all. Then you communicate with it using postMessage(). This is a very
             under-utilized API.
@@ -856,17 +856,17 @@ registerPromiseWorker(msg => {
       <img class="no-border" src="img/mvc01.png"/>
       <aside class="notes">
         So here's another idea for fixing the multithreading problem.
-        Remember how we built apps in 2010? Rails/Django/Grails on the server, a little
+        Remember how we built apps in 2009? Rails/Django/Grails on the server, a little
         jQuery on the client? Main thread was not very busy; most action was happening on the server. It was kind
-        of nice, right!
+        of nice, right! Much fewer problems with janky UI threads, although we did have the problem of a slow, unreliable network between client and server.
       </aside>
     </section>
 
     <section>
       <img src="img/edge_sw.png" class="no-border"/>
       <aside class="notes">
-        Now consider that Service Worker is in development in Edge right now, and Safari is interested. So we can
-        at least imagine a future where Service Worker is supported in every browser.
+        Now consider that Service Worker is in development in Edge right now, and WebKit has shown some interest too. So maybe we can dare to
+        imagine a future where Service Worker is supported in every browser.
       </aside>
     </section>
 
@@ -950,9 +950,7 @@ registerPromiseWorker(msg => {
       </ul>
       <aside class="notes">
         So in general – webapps of the future (progressive web apps) should ideally work well offline, be progressive,
-        and also make use of more than one thread. Let's remember why we do this – it's all about the user. It's about
-        making a better experience for them, making apps that are pleasant to use, making the web a first-class citizen
-        on every platform.
+        and also make use of more than one thread.
       </aside>
     </section>
 
@@ -960,7 +958,9 @@ registerPromiseWorker(msg => {
       <h3>It's all about</h3>
       <h2 class="random-color fragment">THE USER</h2>
       <aside class="notes">
-        Thank you.
+        Some of the techniques I've discussed might feel like a lot of gymnastics, but let's remember why we do this – it's all about the user. It's about
+        making a better experience for them, making apps that are pleasant to use, making the web a first-class citizen
+        on every platform.
       </aside>
     </section>
 
@@ -996,6 +996,7 @@ registerPromiseWorker(msg => {
         <li><a href="https://c1.staticflickr.com/9/8255/8670701666_e4e7631f9c_b.jpg">Sloth</a></li>
       </ul>
       </ul>
+      <aside class="notes">Thank you.</aside>
     </section>
 
   </div>
