@@ -123,7 +123,7 @@
       </div>
       <aside class="notes">
         Bruce Lawson, though, has a really great talk on PWAs where he explains where they fit into the web's history.
-        He's been in the industry longer than me, so he's got a much longer perspective on this.
+        He's been in the industry longer than me, so he's got a much deeper perspective on this.
         What he points out in the talk is that, if you were building web sites 10-15 years ago, and you wanted to build
         rich, immersive experiences for your users, you were probably using Flash. It was proprietary, it was nonstandard,
         but it was how you built quality web sites in those days.
@@ -175,7 +175,8 @@
         <em>– Alex Russell, 2016</em>
       </div>
       <aside class="notes">
-        Unfortunately, as Alex Russell points out in this talk, we won just in time for mobile to eat the world. Now we
+        Unfortunately, as Alex Russell points out in this talk, we won just in time for mobile to eat the world. Alex asks an interesting question of the audience: do you use a native or web app as your desktop email client? Majority of hands say web. Then he asks the same question for mobile – complete opposite response!
+So now we
         find ourselves in a very similar solution on mobile to where we were on desktop 10-15 years ago. If you want to build
         a high-quality, immersive experience for your mobile users, you write a native Android or iOS app. Maybe it's a bit
         painful for folks like us – folks who love the web – to acknowledge, but the market has spoken. In terms of hours spent
@@ -206,7 +207,7 @@
         </thead>
         <tbody>
         <tr>
-          <td><span class="fragment" data-fragment-index="1"><span class="emoji">&#x1f4f6;</span> Offline</span></td>
+          <td><span><span class="emoji">&#x1f4f6;</span> Offline</span></td>
           <td class="center"><span class="fragment" data-fragment-index="6"><span class="emoji">&#x2714;</span></span></td>
           <td class="center"><span class="fragment" data-fragment-index="7"><span class="emoji">&#x274C;</span></span></td>
           <td class="center"><span class="fragment" data-fragment-index="12"><span class="emoji">&#x2714;</span></span></td>
@@ -232,22 +233,23 @@
         are progressive – they progressively reveal bits of functionality the more you use the application, and they're multithreaded –
         they take advantage of the device capabilities to run tasks in parallel.
 
-        Each of these we can compare to natve apps. Offline? native apps do this fairly well. They don't always do it right,
+        Each of these we can compare to native apps. Offline? native apps do this fairly well. They don't always do it right,
         but for the most part, native developers are at least aware of offline states, and tend to show a spinner or cached content
         instead of just an error page. Progressive? Interestingly, this is one case where native apps are actually terrible. It takes
-        so long to download an app from the store! This is actually something that the web is already designed to handle very well,
-        and it's a feature of the web that we don't want to lose, as we make it more app-y. The third is multithreaded, and here I would
+        so long to download an app from the store! This is actually something that the web is already designed to handle very well; it's in the web's DNA!
+        And it's a feature of the web that we don't want to lose, as we make it more app-y. The third is multithreaded, and here I would
         argue that native apps are *very* good at this; I used to do Android development, and I worked alongside iOS developers as well,
         and this is just something we do by default – we avoid over-using the UI thread, we use background threads in order to keep
         the UI smooth. Web developers, I'd argue, are only dimly aware of this, and an understanding of the inherent limitations of mobile
         hardware hasn't really filtered through yet.
+        But what I'd like to argue in this talk is that a well-designed PWA can win on all three of these fronts. So I'll go through each of the three points one at a time. Think of it as three 10-minute lightning talks (since I've got 30 minutes left!).
       </aside>
     </section>
 
     <section>
       <h2><span class="emoji">&#x1f4f6;</span> Offline</h2>
       <aside class="notes">
-        OK, so I have three topics to cover, and what I plan on doing is essentially a 10-minute lightning talk on each one. Ready? Let's go.
+        Let's start with offline.
       </aside>
     </section>
 
@@ -298,14 +300,15 @@
         It's not about being on the subway...
       </aside>
     </section>
-    <section data-background="img/plane.jpg"></section>
+    <section data-background="img/plane.jpg">
     <aside class="notes">
       Or on a plane...
     </aside>
+    </section>
     <section data-background="img/climbing.jpg">
       <aside class="notes">
-        Or climbing on a mountain trying to catch some rare rock-type Pokémon, whatever you need your phone to do
-        while you're climbing. These are too easy to dismiss as edge cases.
+        Or climbing on a mountain trying to catch some rare rock-type Pokémon – whatever this person needs their phone to do
+        while they're climbing a mountain. These are all too easy to dismiss as edge cases.
       </aside>
     </section>
 
@@ -428,7 +431,7 @@
         So basically, AppCache and WebSQL are deprecated, LocalStorage is quasi-deprecated, and the preferred modern solution
         is the Cache API (via Service Worker) and IndexedDB. Note that the new solutions are more low-level than the previous
         solutions. They may have a reputation for being difficult to work with, but the point is that folks are supposed
-        to be building libraries on top of them to make them easier to use. If you're a bigger, don't try to use Service Worker
+        to be building libraries on top of them to make them easier to use. If you're a beginner, don't get frustrated trying to use Service Worker
         or IndexedDB directly – use a wrapper library!
       </aside>
     </section>
@@ -487,8 +490,7 @@
     <section>
       <h3>In 2016, it's okay to build a website that doesn't work without JavaScript.</h3>
       <aside class="notes">
-        This is where I'm gonna potentially get thought-leadery and say something controversial. I think the "your
-        site must work without JS" mantra is dumb.
+        This is where I'm gonna potentially get thought-leadery and say something controversial. I think it's perfectly fine for a site not to work without JavaScript.
       </aside>
     </section>
 
